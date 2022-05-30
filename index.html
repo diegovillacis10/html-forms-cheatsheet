@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form</title>
+</head>
+
+<body>
+  <!-- we use enctype multipart/form-data. files are very large, we can't
+  send them all at once, is going to send that file in multiple parts, so
+we tell our server that we are sending in multiple sections so that knows to
+looks from multiple sections as oppose to just a single form upload. -->
+  <form action="results.html" method="GET" enctype="multipart/form-data">
+    <div>
+      <!-- We set the for attr to the id of the element we want to
+          highlight whenever we click on the label, this is useful 
+          for users and screenreaders. This is the most common way  -->
+      <label for="name">Name</label>
+      <!-- value: default value
+        placeholder: to give more information to the user -->
+      <input type="text" name="name" id="name" value="User" placeholder="username" required />
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <!-- Verify email address by default -->
+      <input type="email" name="email" id="email" required value="asdf@sadf.com" />
+    </div>
+    <div>
+      <label for="age">Age</label>
+      <!-- type `number` let you use arrow keys to choose a number -->
+      <input type="number" name="age" id="age" required min="1" max="200" step="5" />
+    </div>
+    <div>
+      <label for="date">Birthdate</label>
+      <input type="date" name="date" id="date" min="2022-05-29"></input>
+    </div>
+    <div>
+      Favorite Food
+      <div>
+        <label for="banana">Banana</label>
+        <input type="checkbox" name="banana" id="banana">
+      </div>
+      <div>
+        <label for="apple">Apple</label>
+        <input type="checkbox" name="apple" id="apple">
+      </div>
+    </div>
+    <div>
+      Gender
+      <div>
+        <label for="male">Male</label>
+        <!-- we don't set name as male, we set a gender because with radios
+              they all need to share the same nam, this is how its knows there is
+              only one selected -->
+        <input type="radio" name="gender" id="male" value="male">
+      </div>
+      <div>
+        <label for="female">Female</label>
+        <input type="radio" name="gender" id="female" value="female">
+      </div>
+    </div>
+    <div>
+      <label for="eyeColor">Eye Color</label>
+      <!-- we can use multiple to allow multiple selections -->
+      <select name="eyeColor" id="eyeColor" multiple>
+        <option value="Green">Green</option>
+        <option label="Red" value="Red"></option>
+      </select>
+    </div>
+    <div>
+      <label for="bio">Bio</label>
+      <!-- for textarea, is the only input element that needs closing tag
+          since its value always goes inside the tags -->
+      <textarea name="bio" id="bio" cols="30" rows="10"></textarea>
+    </div>
+    <!-- users are not able to interact with a hidden input -->
+    <input type="hidden" name="hidden" value="hi">
+    <div>
+      <label for="file">File</label>
+      <input id="file" type="file" name="file">
+    </div>
+    <div>
+      <label for="phone">Phone</label>
+      <!-- will display tel keyboard on mobile -->
+      <input type="tel" name="phone" id="phone">
+    </div>
+    <div>
+      <label for="url">URL</label>
+      <!-- will display url keyboard on mobile -->
+      <input type="url" name="url" id="url">
+    </div>
+    <div>
+      <label for="color">Color</label>
+      <input type="color" name="color" id="color">
+    </div>
+    <div>
+      <!-- Another way to do it is, nest the element inside the label -->
+      <label>
+        Password
+        <input type="password" name="password" required />
+      </label>
+    </div>
+    <!-- Native way to clean a form, also sets value to `value attr in input` -->
+    <button type="reset">Reset</button>
+    <!-- When we use the type `submit` in button, also links the enter key
+      so it's submit our form on enter key press  -->
+    <button type="submit">Submit</button>
+  </form>
+</body>
+
+</html>
